@@ -1,0 +1,7 @@
+name: aimnet
+dependencies:
+  - python>=3.10,<3.13
+  - pip
+  - pip:
+    - torch --index-url https://download.pytorch.org/whl/cu126
+    - git+https://github.com/isayevlab/aimnetcentral.git
