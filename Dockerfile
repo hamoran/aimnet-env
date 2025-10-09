@@ -5,12 +5,11 @@ RUN apt-get update && \
     apt-get -y install git gcc g++ && \
     rm -rf /var/lib/apt/lists/*
 
-COPY aimnet.yml .
+COPY environment.yml .
 
-RUN conda env create -f aimnet.yml && \
+RUN conda env create -f environment.yml && \
     conda clean --all -afy
 
 ENV PATH=/opt/conda/bin:$PATH
 
-# Set the default shell to use bash and activate the conda environment
 ENTRYPOINT ["conda", "run", "--no-capture-output", "-n", "aimnet"]
